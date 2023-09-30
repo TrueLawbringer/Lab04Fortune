@@ -23,7 +23,6 @@ public class FortuneTellerViewer
         FortuneTellerFrame xingTian = new FortuneTellerFrame();
         xingTian.setWisdoms(wisdoms);
         xingTian.setTitle("Xing Tian the Undying");
-        xingTian.setSize(800, 700);
         xingTian.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         xingTian.setVisible(true);
 
