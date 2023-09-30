@@ -4,8 +4,8 @@ public class FortuneTellerViewer
 {
     public static void main(String[] args)
     {
-        //Generates wisdoms here so the frameitself is more multipurpose, any amount of visions can
-            //be used for different themes I went with Warrior Poet Fortunes
+        /*Generates wisdoms here so the frame itself is more multipurpose, any amount of visions can
+            be used for different themes I went with Warrior Poet styled Fortunes*/
         String[] wisdoms = new String[12];
         wisdoms[0] = "One mark of a great soldier is that a great soldier fights on his own terms or fights not at all.";
         wisdoms[1] = "All men are warriors and life for everything in our universe is nothing but war.";

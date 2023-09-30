@@ -2,16 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.ImageObserver;
-import java.text.AttributedCharacterIterator;
 import java.util.Random;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.Graphics;
-import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -34,12 +26,13 @@ public class FortuneTellerFrame extends JFrame
     JPanel display = new JPanel();
     JPanel controlPnl = new JPanel();
 
-    JLabel title = new JLabel("Great Visionary ");
-
     ImageIcon fortTellIcon = new ImageIcon("fortune-teller-eye-on-crystal-ba.jpg", "handsome fella");
+    JLabel title = new JLabel("Great Visionary ", fortTellIcon, JLabel.CENTER);
 
 
-    JTextArea fortuneTxtArea = new JTextArea(11,55);
+
+
+    JTextArea fortuneTxtArea = new JTextArea(13,65);
 
     JScrollPane scroller = new JScrollPane(fortuneTxtArea);
 
@@ -70,6 +63,16 @@ public class FortuneTellerFrame extends JFrame
     public FortuneTellerFrame()
     {
         main.setLayout(new BorderLayout());
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(main);
+        main.setBackground(new Color(255, 255, 255));
+
+        Toolkit kit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = kit.getScreenSize();
+        int screenHeight = screenSize.height;
+        int screenWidth = screenSize.width;
+        setSize(3 * (screenWidth / 4), 3 * (screenHeight / 4));
 
         createIconPanel();
         createDisplayPanel();
@@ -81,7 +84,8 @@ public class FortuneTellerFrame extends JFrame
     private void createControlPanel()
     {
         controlPnl.setLayout(new GridLayout(1,2));
-
+        fortuneBtn.setFont(new Font("Plain", Font.PLAIN, 12));
+        quitBtn.setFont(new Font("Plain", Font.PLAIN, 12));
         controlPnl.add(fortuneBtn);
         fortuneBtn.addActionListener(new fortuneFinder());
         controlPnl.add(quitBtn);
@@ -103,13 +107,15 @@ public class FortuneTellerFrame extends JFrame
 
     private void createIconPanel()
     {
-
-        title.setFont(new Font("Monospaced", Font.BOLD, 24));
+        iconPnl.setBackground(new Color(255, 255, 255));
+        title.setFont(new Font("Monospaced", Font.BOLD, 48));
+        title.setForeground(new Color(12, 207, 50));
+        title.setHorizontalAlignment(JLabel.CENTER);
+        title.setVerticalAlignment(JLabel.CENTER);
+        title.setHorizontalTextPosition(JLabel.CENTER);
+        title.setVerticalTextPosition(JLabel.BOTTOM);
         iconPnl.add(title);
 
-
-        JLabel image = new JLabel(fortTellIcon);
-        iconPnl.add(image);
         main.add(BorderLayout.NORTH, iconPnl);
     }
 
